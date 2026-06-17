@@ -3,7 +3,7 @@
 $base_url = "";
 
 // Thông tin kết nối Railway MySQL
-$db_host = "homas.proxy.rlwy.net";
+$db_host = "thomas.proxy.rlwy.net";
 $db_user = "root";
 $db_pass = "crnqsvSwHcqPDQJKOlqOyXPmkRBLcAhU";
 $db_name = "railway";
