@@ -1,6 +1,7 @@
 
 <?php
-session_start();
+include_once '../inc/config.php';
+start_secure_session();
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../dn_dk.php?error=login_required");
     exit;

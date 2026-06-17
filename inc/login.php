@@ -1,6 +1,6 @@
 <?php
-session_start();
 include 'config.php';
+start_secure_session();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 if (isset($_POST['username']) && isset($_POST['password'])) {

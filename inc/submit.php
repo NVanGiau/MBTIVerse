@@ -1,6 +1,6 @@
 <?php
-session_start();
 include 'config.php';
+start_secure_session();
 // Trả dữ liệu dạng JSON
 header('Content-Type: application/json');
 // Kiểm tra dữ liệu từ form
@@ -46,10 +46,10 @@ exit;
 // === Hàm tính toán MBTI ===
 function calculatePersonalityType($answers) {
     $scores = ['EI' => 0, 'SN' => 0, 'TF' => 0, 'JP' => 0];
-    $conn = new mysqli("localhost", "root", "", "mbti_schema");
-    $conn->set_charset("utf8");
+    // Sử dụng kết nối từ config.php (Railway)
+    global $conn;
     foreach ($answers as $question_id => $score) {
-        $sql = "SELECT category FROM questions WHERE question_id = ?";
+        $sql = "SELECT category FROM questions WHERE question_ID = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $question_id);
         $stmt->execute();
@@ -63,7 +63,6 @@ function calculatePersonalityType($answers) {
         }
         $stmt->close();
     }
-    $conn->close();
     // Ghép kết quả
     $result = '';
     $result .= $scores['EI'] > 0 ? 'E' : 'I';

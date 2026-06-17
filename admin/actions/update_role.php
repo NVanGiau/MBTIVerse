@@ -1,5 +1,6 @@
 <?php
 include '../../inc/config.php';
+start_secure_session();
 if (isset($_POST['user_id']) && isset($_POST['role'])) {
     $user_id = intval($_POST['user_id']);
     $new_role = $_POST['role'];
@@ -8,7 +9,6 @@ if (isset($_POST['user_id']) && isset($_POST['role'])) {
         echo "invalid_role";
         exit;
     }
-    session_start();
     // Không cho đổi vai trò của chính mình
     if ($_SESSION['user_id'] == $user_id) {
         echo "cannot_change_own_role";

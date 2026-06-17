@@ -1,6 +1,6 @@
 <?php
-session_start(); // Phải có để truy cập session
 include 'config.php';
+start_secure_session(); // Phải có để truy cập session
 $username = trim($_POST['username']);
 $email = trim($_POST['email']);
 $user_id = $_SESSION['user_id']; // Session phải tồn tại thì mới update đúng người dùng

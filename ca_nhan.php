@@ -1,6 +1,6 @@
 <?php
-session_start();
 include 'inc/config.php';
+start_secure_session();
 $user_id = $_SESSION['user_id']; 
 // Lấy lịch sử làm bài của người dùng
 $sql = "SELECT r.personality_type, r.taken_at, pt.description

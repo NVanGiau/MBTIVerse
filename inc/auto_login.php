@@ -1,12 +1,12 @@
 <?php
-session_start();
+include_once 'config.php';
+start_secure_session();
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit;
 }
 // Nếu chưa đăng nhập nhưng có cookie 'remember_username'
 if (!isset($_SESSION['username']) && isset($_COOKIE['remember_username'])) {
-    require_once 'config.php'; // Kết nối CSDL
     $username = $_COOKIE['remember_username'];
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);

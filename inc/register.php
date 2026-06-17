@@ -1,6 +1,6 @@
 <?php
-session_start();
 include 'config.php';
+start_secure_session();
 // Hiển thị lỗi trong quá trình phát triển
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

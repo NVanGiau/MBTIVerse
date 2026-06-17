@@ -1,9 +1,5 @@
 <?php
 include 'inc/bootstrap.php';
-
-echo "<pre>";
-var_dump($_SESSION);
-echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +27,7 @@ echo "</pre>";
     </div>
     <!-- Bắt đầu thẻ Form -->
     <form id="mbti-form" method="POST" action="inc/submit.php">
-      <?php include 'inc/config.php';
+      <?php include_once 'inc/config.php';
       // Lấy tất cả câu hỏi
       $sql = "SELECT question_ID, question_text FROM questions ORDER BY question_ID ASC";
       $result = $conn->query($sql);
