@@ -27,15 +27,16 @@ if ($conn->connect_error) {
 $conn->set_charset("utf8mb4");
 
 // Hàm khởi động session với cấu hình HTTPS
-function start_secure_session() {
-    if (session_status() === PHP_SESSION_NONE) {
-        // Cấu hình session cookie cho HTTPS (Render)
-        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
-            ini_set('session.cookie_secure', 1);
-            ini_set('session.cookie_httponly', 1);
-            ini_set('session.cookie_samesite', 'Lax');
+if (!function_exists('start_secure_session')) {
+    function start_secure_session() {
+        if (session_status() === PHP_SESSION_NONE) {
+            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+                ini_set('session.cookie_secure', 1);
+                ini_set('session.cookie_httponly', 1);
+                ini_set('session.cookie_samesite', 'Lax');
+            }
+            session_start();
         }
-        session_start();
     }
 }
 ?>
