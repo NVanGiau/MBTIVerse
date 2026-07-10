@@ -56,15 +56,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AC91F3E60A0047DB8E0BDBD2D5B90FB2 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9F959A7B2406407EBC31FD80B9E6669F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9F988FE793E24B06A4A64FC663A4243A }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F50247B5254A4A149EC52BA207EB4FC8 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_43B883DC92D4448E9B2BED2990A7A875 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C3863CFF91214AF5853E0DCDAF3BC62B }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'mbtiverse-hee0csd3epbxegfr'
+          app-name: 'MBTIVerse'
           slot-name: 'Production'
           package: .
           
