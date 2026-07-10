@@ -64,6 +64,6 @@ jobs:
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'mbtiverse-hee0csd3epbxegfr'
+          app-name: 'MBTIVerse'
           package: .
           
