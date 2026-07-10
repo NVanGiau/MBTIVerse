@@ -65,6 +65,5 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'mbtiverse-hee0csd3epbxegfr'
-          slot-name: 'Production'
           package: .
           
